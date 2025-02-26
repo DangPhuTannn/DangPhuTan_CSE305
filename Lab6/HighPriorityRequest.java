@@ -1,26 +1,29 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class HighPriorityRequest implements Request {
     private String priority;
     private String expireDay;
     private String status;
 
     @Override
-    public void setPriority(String priority) {
-        this.priority = priority;
+    public void setPriority() {
+        this.priority = "Emergency";
     }
 
     @Override
-    public void setExpire(String expireDay) {
-        this.expireDay = expireDay;
+    public void setStatus() {
+        this.status = "Accept";
     }
 
     @Override
-    public void setStatus(String status) {
-        this.status = status;
+    public void setExpire() {
+        this.expireDay = LocalDate.now().format(DateTimeFormatter.ISO_DATE);
     }
 
     @Override
     public void processRequest() {
-        System.out.println("Processing HIGH priority request...");
-        System.out.println("Status: " + status + ", Expire Day: " + expireDay);
+        System.out.println("Emergency request, our Administer will contact you immediately !");
+        System.out.println("Testing Values : Priority: " + priority + "Status: " + status + ", Expire Day: " + expireDay);
     }
 }

@@ -1,9 +1,9 @@
 public interface Request {
-    void setPriority(String priority);
+    void setPriority();
 
-    void setExpire(String expireDay);
+    void setExpire();
 
-    void setStatus(String status);
+    void setStatus();
 
     void processRequest();
 }

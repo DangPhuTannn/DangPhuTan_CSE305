@@ -1,26 +1,29 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class LowPriorityRequest implements Request {
     private String priority;
     private String expireDay;
     private String status;
 
     @Override
-    public void setPriority(String priority) {
-        this.priority = priority;
+    public void setPriority() {
+        this.priority = "Ignore";
     }
 
     @Override
-    public void setExpire(String expireDay) {
-        this.expireDay = expireDay;
+    public void setExpire() {
+        this.expireDay = LocalDate.now().format(DateTimeFormatter.ISO_DATE);
     }
 
     @Override
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus() {
+        this.status = "Done";
     }
 
     @Override
     public void processRequest() {
-        System.out.println("Processing LOW priority request...");
-        System.out.println("Status: " + status + ", Expire Day: " + expireDay);
+        System.out.println("Request denied");
+        System.out.println("Testing Values : Priority: " + priority + ", Status: " + status + ", Expire Day: " + expireDay);
     }
 }

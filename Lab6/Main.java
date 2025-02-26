@@ -20,13 +20,6 @@ public class Main {
                 break;
             }
 
-            System.out.print("Enter Priority: ");
-            String priority = sc.nextLine();
-            System.out.print("Enter Expire Date (YYYY-MM-DD): ");
-            String expireDay = sc.nextLine();
-            System.out.print("Enter Status: ");
-            String status = sc.nextLine();
-
             Request request = null;
 
             switch (choice) {
@@ -47,9 +40,9 @@ public class Main {
                     continue;
             }
 
-            request.setPriority(priority);
-            request.setExpire(expireDay);
-            request.setStatus(status);
+            request.setPriority();
+            request.setExpire();
+            request.setStatus();
             request.processRequest();
         }
 

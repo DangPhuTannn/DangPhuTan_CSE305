@@ -1,26 +1,29 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class MidPriorityRequest implements Request {
     private String priority;
     private String expireDay;
     private String status;
 
     @Override
-    public void setPriority(String priority) {
-        this.priority = priority;
+    public void setPriority() {
+        this.priority = "Medium";
     }
 
     @Override
-    public void setExpire(String expireDay) {
-        this.expireDay = expireDay;
+    public void setStatus() {
+        this.status = "Accepted";
     }
 
     @Override
-    public void setStatus(String status) {
-        this.status = status;
+    public void setExpire() {
+        this.expireDay = LocalDate.now().plusMonths(1).format(DateTimeFormatter.ISO_DATE);
     }
 
     @Override
     public void processRequest() {
-        System.out.println("Processing MID priority request...");
-        System.out.println("Status: " + status + ", Expire Day: " + expireDay);
+        System.out.println("Request accepted, estimated completion date is " + expireDay);
+        System.out.println("Testing Values : Priority: " + priority + ", Status: " + status + ", Expire Day: " + expireDay);
     }
 }
